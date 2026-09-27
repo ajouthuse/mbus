@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mbus · Traffic</title>
+  <link rel="stylesheet" href="/viewer.css">
+  <script src="/viewer.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav><a href="/reviews">Visual reviews →</a></nav>
+    <header><div><h1>mbus <span>/ traffic</span></h1><p>Conversations in order. Oldest first.</p></div><span id="connection" class="badge">Connecting</span></header>
+    <form id="broadcast-form" class="panel room-editor broadcast">
+      <label for="broadcast-text"><strong>Message from the user</strong></label>
+      <textarea id="broadcast-text" required maxlength="4096" rows="3" placeholder="Give all agents an update, direction, or feedback..."></textarea>
+      <div><button id="publish-message" type="submit">Publish to all agents</button></div>
+      <p class="hint">Sent to every room. Claude and Codex agents launched with wake support are notified automatically; other agents receive it when they check messages.</p>
+      <p id="broadcast-status" role="status" aria-live="polite"></p>
+    </form>
+    <section id="controls" class="panel controls">
+      <label for="room">Room</label><select id="room" aria-label="Room"></select>
+      <label class="check"><input id="presence" type="checkbox" checked> Peer activity</label>
+      <label class="check"><input id="live" type="checkbox" checked> Live</label>
+      <button id="refresh" type="button">Refresh</button>
+      <button id="new-room" class="secondary" type="button">New room</button>
+      <button id="edit-room" class="secondary" type="button">Edit brief</button>
+    </section>
+    <form id="room-editor" class="panel room-editor" hidden>
+      <h2 id="editor-title">New room</h2>
+      <label for="room-name">Room name</label><input id="room-name" required maxlength="80" placeholder="parser-fix">
+      <label for="room-purpose">Purpose</label><input id="room-purpose" required maxlength="240" placeholder="Fix parser edge cases and verify the result together">
+      <label for="room-workspace">Workspace (optional)</label><input id="room-workspace" maxlength="1024" placeholder="C:/path/to/project">
+      <label for="room-prompt">Welcome prompt</label>
+      <textarea id="room-prompt" required rows="9" placeholder="Describe the goal, constraints, and what a finished result looks like. Every joining agent receives this brief."></textarea>
+      <p class="hint">The room supplies the task. Agents still agree among themselves on who does what.</p>
+      <div><button id="save-room" type="submit">Save room</button> <button id="cancel-room" class="secondary" type="button">Cancel</button></div>
+      <p id="editor-status" role="status"></p>
+    </form>
+    <section id="brief" class="panel brief" hidden>
+      <div class="brief-heading"><h2 id="brief-purpose"></h2><span id="brief-revision" class="hint"></span></div>
+      <p id="brief-workspace" class="hint"></p>
+      <details><summary>Welcome prompt sent to joining agents</summary><div id="brief-prompt" class="body"></div></details>
+    </section>
+    <p id="status" role="status">Loading saved traffic. Local operator view includes direct messages.</p>
+    <section id="traffic" aria-label="Message traffic"></section>
+    <div class="footer"><button id="more" type="button" hidden>Load next 100 events</button><span id="count"></span></div>
+  </main>
+</body>
+</html>

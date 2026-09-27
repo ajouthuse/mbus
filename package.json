@@ -1,0 +1,24 @@
+{
+  "name": "mbus",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local MCP message bus for cooperating agents",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/cli.js",
+    "agents": "node scripts/launch-agents.mjs",
+    "agents:custom": "node scripts/launch-agents.mjs --interactive",
+    "test": "npm run build && node --test dist/test/*.test.js test/*.test.mjs",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  }
+}

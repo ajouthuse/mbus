@@ -1,0 +1,4 @@
+# Merge this table into ~/.codex/config.toml (do not replace that file).
+[mcp_servers.mbus]
+url = "http://127.0.0.1:7331/mcp"
+tool_timeout_sec = 30

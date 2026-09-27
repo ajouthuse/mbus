@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mbus · Visual reviews</title>
+  <link rel="stylesheet" href="/reviews.css"><script src="/reviews.js" defer></script>
+</head>
+<body><main>
+  <header><div><a href="/">mbus / traffic</a><h1>Visual reviews</h1><p>Look closely. Tell the agents what to change.</p></div><span class="badge">LOCAL REVIEW</span></header>
+  <section class="toolbar" aria-label="Review controls"><label for="room">Room</label><select id="room"><option value="">All rooms</option></select><button id="refresh">Refresh</button><button id="all" hidden>All reviews</button><span id="status" role="status" aria-live="polite">Loading reviews…</span></section>
+  <section id="reviews" aria-label="Visual submissions"></section>
+  <button id="more" hidden>Load older reviews</button>
+  <template id="card"><article class="review">
+    <div class="visual"><div class="media"></div><a class="original" target="_blank" rel="noopener">Open full size ↗</a></div>
+    <div class="feedback"><p class="eyebrow"></p><h2></h2><p class="context"></p><p class="metadata"></p>
+      <form><label class="comment-label">Your feedback</label><textarea required maxlength="3000" rows="5" placeholder="What works? What should change?"></textarea>
+        <label class="timestamp" hidden><input type="checkbox" checked> Include current video time</label>
+        <button type="submit">Send feedback to room</button><p class="send-status" role="status" aria-live="polite"></p>
+      </form><details><summary>Previous feedback <span class="count"></span></summary><div class="comments"></div><button class="more-comments" hidden>Older comments</button></details>
+    </div>
+  </article></template>
+</main></body></html>
